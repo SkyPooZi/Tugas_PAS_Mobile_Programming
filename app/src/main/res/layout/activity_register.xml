@@ -8,9 +8,16 @@
     android:layout_height="match_parent"
     tools:context=".Register">
 
+    <ImageView
+        android:src="@drawable/register"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:layout_width="250px"
+        android:layout_height="250px" />
+
     <TextView
         android:textSize="12pt"
-        android:textColor="#2269B5"
+        android:textColor="#2196F3"
         android:layout_marginTop="10dp"
         android:gravity="center"
         android:layout_width="match_parent"
@@ -20,7 +27,7 @@
     <EditText
         android:id="@+id/txtUsername2"
         android:layout_margin="5dp"
-        android:hint="username"
+        android:hint="Username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
@@ -28,7 +35,7 @@
         android:id="@+id/txtPassword2"
         android:inputType="textPassword"
         android:layout_margin="5dp"
-        android:hint="password"
+        android:hint="Password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
@@ -50,6 +57,7 @@
     <Button
         android:id="@+id/btnRegister"
         android:layout_margin="10dp"
+        android:backgroundTint="#3F51B5"
         android:text="Login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>

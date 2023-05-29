@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "893235770196",
+    "project_id": "paszidan-a5ed7",
+    "storage_bucket": "paszidan-a5ed7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:893235770196:android:1d99807ed9776b06548ec1",
+        "android_client_info": {
+          "package_name": "com.example.tugaspas_zidane"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCRjqnFPKKHt86Ffrpy1wLqmLmL-beMhrU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

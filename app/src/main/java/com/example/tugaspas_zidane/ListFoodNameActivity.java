@@ -127,7 +127,7 @@ public class ListFoodNameActivity extends AppCompatActivity implements FoodAdapt
     public void onDeleteClickListener(FoodModel foodModel) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Delete")
-                .setMessage("Are you sure you want to delete this ID: " + foodModel.getFoodName())
+                .setMessage("Are you sure you want to delete this Food : " + foodModel.getFoodName())
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {

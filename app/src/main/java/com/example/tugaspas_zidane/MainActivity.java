@@ -19,11 +19,21 @@ import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.tasks.Task;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
  public class MainActivity extends AppCompatActivity {
+
+     private GoogleSignInClient mGoogleSignInClient;
+
+     private static final int RC_SIGN_IN = 9001;
 
     public static final String SHARED_PREFS = "shared_prefs";
 
@@ -36,7 +46,7 @@ import org.json.JSONObject;
 
     //list widget yang akan dikenakan aksi
     EditText txtUsername, txtPassword;
-    Button btnLogin;
+    Button btnLogin, btnSignIn;
     ProgressBar pbLadingBar;
     TextView tvRegister;
 
@@ -51,11 +61,27 @@ import org.json.JSONObject;
         btnLogin = (Button) findViewById(R.id.btnLogin);
         pbLadingBar = findViewById(R.id.pbloadingBar);
         tvRegister = findViewById(R.id.tvRegister);
+        btnSignIn = findViewById(R.id.btnSignIn);
+
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail()
+                .build();
+
+        mGoogleSignInClient = GoogleSignIn.getClient(MainActivity.this, gso);
+
         tvRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MainActivity.this, Register.class));
                 finish();
+            }
+        });
+
+        btnSignIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent signInIntent = mGoogleSignInClient.getSignInIntent();
+                startActivityForResult(signInIntent,RC_SIGN_IN);
             }
         });
 
@@ -111,4 +137,26 @@ import org.json.JSONObject;
                 }
             });
         }
+         @Override
+         public void onActivityResult(int requestCode, int resultCode, Intent data) {
+             super.onActivityResult(requestCode, resultCode, data);
+             if (requestCode == RC_SIGN_IN) {
+                 Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
+                 try {
+                     GoogleSignInAccount account = task.getResult(ApiException.class);
+                     sharedpreferences = getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
+                     SharedPreferences.Editor editor = sharedpreferences.edit();
+                     editor.putString(EMAIL_KEY,account.getId());
+                     editor.putString(PASSWORD_KEY, "");
+                     // to save our data with key and value.
+                     editor.apply();
+
+                     startActivity(new Intent(MainActivity.this, SplashScreen.class));
+                     finish();
+                     // Proses sign-in berhasil, Anda dapat menyimpan data akun menggunakan Shared Preferences di sini
+                 } catch (ApiException e) {
+                     // Sign-in gagal, Anda dapat menangani kesalahan di sini
+                 }
+             }
+         }
     }
