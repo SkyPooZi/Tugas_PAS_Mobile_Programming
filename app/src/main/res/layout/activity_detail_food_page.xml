@@ -6,7 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:cardCornerRadius="25dp"
-    app:cardBackgroundColor="@color/black"
     android:layout_margin="10dp"
     tools:context=".DetailFoodPage">
 
@@ -20,7 +19,7 @@
             android:id="@+id/tvfoodname"
             android:text="this is food name"
             android:textSize="25dp"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
             android:layout_width="wrap_content"
@@ -38,7 +37,8 @@
             android:text="this is food description"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
-            android:textColor="@color/white"
+            android:padding="20dp"
+            android:textColor="@color/black"
             android:textSize="20dp"
             android:layout_gravity="center"
             android:layout_width="wrap_content"
