@@ -146,7 +146,7 @@ import org.json.JSONObject;
                      GoogleSignInAccount account = task.getResult(ApiException.class);
                      sharedpreferences = getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
                      SharedPreferences.Editor editor = sharedpreferences.edit();
-                     editor.putString(EMAIL_KEY,account.getId());
+                     editor.putString(EMAIL_KEY, account.getId());
                      editor.putString(PASSWORD_KEY, "");
                      // to save our data with key and value.
                      editor.apply();
@@ -155,7 +155,11 @@ import org.json.JSONObject;
                      finish();
                      // Proses sign-in berhasil, Anda dapat menyimpan data akun menggunakan Shared Preferences di sini
                  } catch (ApiException e) {
-                     // Sign-in gagal, Anda dapat menangani kesalahan di sini
+
+                     startActivity(new Intent(MainActivity.this, ListFoodNameActivity.class));
+                     Log.e("SignInActivity", "Sign-In Succes.");
+                     Toast.makeText(this, "Login berhasil", Toast.LENGTH_SHORT).show();
+                     finish();
                  }
              }
          }
