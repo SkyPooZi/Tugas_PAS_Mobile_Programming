@@ -21,6 +21,16 @@
         android:layout_height="match_parent"
         android:layout_gravity="center" />
 
+    <TextView
+        android:layout_gravity="center"
+        android:hint="Data All Liga"
+        android:layout_width="wrap_content"
+        android:layout_margin="20px"
+        android:textColor="@color/black"
+        android:layout_marginBottom="10px"
+        android:layout_height="wrap_content"
+        android:textSize="20dp" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:visibility="gone"
         android:id="@+id/rvkontakname"

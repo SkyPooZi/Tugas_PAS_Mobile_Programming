@@ -43,7 +43,7 @@ public class ListFoodNameActivity extends AppCompatActivity implements FoodAdapt
     ProgressBar pbloadingteam;
 
     public void getFoodOnline(){
-        String url = "https://www.themealdb.com/api/json/v1/1/categories.php";
+        String url = "https://www.thesportsdb.com/api/v1/json/3/search_all_leagues.php?c=England";
         AndroidNetworking.get(url)
                 .setTag("test")
                 .setPriority(Priority.LOW)
@@ -53,13 +53,20 @@ public class ListFoodNameActivity extends AppCompatActivity implements FoodAdapt
                     public void onResponse(JSONObject jsonObject) {
 //                        Log.d("success ", "onResponse: "+jsonObject.toString());
                         try {
-                            JSONArray jsonArrayFood = jsonObject.getJSONArray("categories");
+                            JSONArray jsonArrayFood = jsonObject.getJSONArray("countries");
                             for (int i = 0; i < jsonArrayFood.length(); i++) {
                                 FoodModel myFood = new FoodModel();
                                 JSONObject jsonTeam = jsonArrayFood.getJSONObject(i);
-                                myFood.setFoodName(jsonTeam.getString("strCategory"));
-                                myFood.setFoodImage(jsonTeam.getString("strCategoryThumb"));
-                                myFood.setFoodDescription(jsonTeam.getString("strCategoryDescription"));
+                                myFood.setStrSport(jsonTeam.getString("strSport"));
+                                myFood.setStrLeague(jsonTeam.getString("strLeague"));
+                                myFood.setStrCurrentSeason(jsonTeam.getString("strCurrentSeason"));
+                                myFood.setDateFirstEvent(jsonTeam.getString("dateFirstEvent"));
+                                myFood.setStrGender(jsonTeam.getString("strGender"));
+                                myFood.setStrCountry(jsonTeam.getString("strCountry"));
+                                myFood.setStrDescriptionEN(jsonTeam.getString("strDescriptionEN"));
+                                myFood.setStrBadge(jsonTeam.getString("strBadge"));
+                                myFood.setStrLogo(jsonTeam.getString("strLogo"));
+                                myFood.setStrTrophy(jsonTeam.getString("strTrophy"));
                                 listDataFoods.add(myFood);
                             }
                             rvFoodName = findViewById(R.id.rvkontakname);
@@ -127,7 +134,7 @@ public class ListFoodNameActivity extends AppCompatActivity implements FoodAdapt
     public void onDeleteClickListener(FoodModel foodModel) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Delete")
-                .setMessage("Are you sure you want to delete this Food : " + foodModel.getFoodName())
+                .setMessage("Are you sure you want to delete this Food : " + foodModel.getStrSport())
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
