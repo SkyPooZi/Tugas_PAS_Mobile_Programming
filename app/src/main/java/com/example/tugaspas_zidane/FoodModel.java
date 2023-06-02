@@ -5,14 +5,28 @@ import android.os.Parcelable;
 
 public class FoodModel implements Parcelable {
 
-    private String foodName;
-    private String foodDescription;
-    private String foodImage;
+    private String strSport;
+    private String strLeague;
+    private String strCurrentSeason;
+    private String dateFirstEvent;
+    private String strGender;
+    private String strCountry;
+    private String strDescriptionEN;
+    private String strBadge;
+    private String strLogo;
+    private String strTrophy;
 
     protected FoodModel(Parcel in) {
-        foodName = in.readString();
-        foodDescription = in.readString();
-        foodImage = in.readString();
+        strSport = in.readString();
+        strLeague = in.readString();
+        strBadge = in.readString();
+        strCurrentSeason = in.readString();
+        dateFirstEvent = in.readString();
+        strGender = in.readString();
+        strCountry = in.readString();
+        strDescriptionEN = in.readString();
+        strLogo = in.readString();
+        strTrophy = in.readString();
     }
 
     FoodModel(){
@@ -31,28 +45,84 @@ public class FoodModel implements Parcelable {
         }
     };
 
-    public String getFoodName() {
-        return foodName;
+    public String getStrSport() {
+        return strSport;
     }
 
-    public void setFoodName(String foodName) {
-        this.foodName = foodName;
+    public void setStrSport(String strSport) {
+        this.strSport = strSport;
     }
 
-    public String getFoodDescription() {
-        return foodDescription;
+    public String getStrLeague() {
+        return strLeague;
     }
 
-    public void setFoodDescription(String foodDescription) {
-        this.foodDescription = foodDescription;
+    public void setStrLeague(String strLeague) {
+        this.strLeague = strLeague;
     }
 
-    public String getFoodImage() {
-        return foodImage;
+    public String getStrBadge() {
+        return strBadge;
     }
 
-    public void setFoodImage(String foodImage) {
-        this.foodImage = foodImage;
+    public void setStrBadge(String strBadge) {
+        this.strBadge = strBadge;
+    }
+
+    public String getStrCurrentSeason() {
+        return strCurrentSeason;
+    }
+
+    public void setStrCurrentSeason(String strCurrentSeason) {
+        this.strCurrentSeason = strCurrentSeason;
+    }
+
+    public String getDateFirstEvent() {
+        return dateFirstEvent;
+    }
+
+    public void setDateFirstEvent(String dateFirstEvent) {
+        this.dateFirstEvent = dateFirstEvent;
+    }
+
+    public String getStrGender() {
+        return strGender;
+    }
+
+    public void setStrGender(String strGender) {
+        this.strGender = strGender;
+    }
+
+    public String getStrCountry() {
+        return strCountry;
+    }
+
+    public void setStrCountry(String strCountry) {
+        this.strCountry = strCountry;
+    }
+
+    public String getStrDescriptionEN() {
+        return strDescriptionEN;
+    }
+
+    public void setStrDescriptionEN(String strDescriptionEN) {
+        this.strDescriptionEN = strDescriptionEN;
+    }
+
+    public String getStrLogo() {
+        return strLogo;
+    }
+
+    public void setStrLogo(String strLogo) {
+        this.strLogo = strLogo;
+    }
+
+    public String getStrTrophy() {
+        return strTrophy;
+    }
+
+    public void setStrTrophy(String strTrophy) {
+        this.strTrophy = strTrophy;
     }
 
     @Override
@@ -62,8 +132,15 @@ public class FoodModel implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(foodName);
-        parcel.writeString(foodDescription);
-        parcel.writeString(foodImage);
+        parcel.writeString(strSport);
+        parcel.writeString(strLeague);
+        parcel.writeString(strBadge);
+        parcel.writeString(strCurrentSeason);
+        parcel.writeString(dateFirstEvent);
+        parcel.writeString(strGender);
+        parcel.writeString(strCountry);
+        parcel.writeString(strDescriptionEN);
+        parcel.writeString(strLogo);
+        parcel.writeString(strTrophy);
     }
 }

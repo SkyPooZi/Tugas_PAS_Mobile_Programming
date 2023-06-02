@@ -21,12 +21,15 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.MyViewHolder>{
     private FoodAdapterListener listener;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView tvname;
+        public TextView tvname, tvleague, tvdateFirstEvent, tvcountry;
         public ImageView ivFoodImage;
 
         public MyViewHolder(View view) {
             super(view);
             tvname = view.findViewById(R.id.tvname);
+            tvleague = view.findViewById(R.id.tvleague);
+            tvdateFirstEvent = view.findViewById(R.id.tvdateFirstEvent);
+            tvcountry = view.findViewById(R.id.tvcountry);
             ivFoodImage = view.findViewById(R.id.ivlogoteam);
 
 
@@ -65,8 +68,11 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.MyViewHolder>{
     @Override
     public void onBindViewHolder(@NonNull FoodAdapter.MyViewHolder holder, int position) {
         final FoodModel contact = this.foodList.get(position);
-        holder.tvname.setText(contact.getFoodName());
-        Glide.with(holder.itemView.getContext()).load(contact.getFoodImage()).into(holder.ivFoodImage);
+        holder.tvname.setText(contact.getStrSport());
+        holder.tvleague.setText(contact.getStrLeague());
+        holder.tvdateFirstEvent.setText(contact.getDateFirstEvent());
+        holder.tvcountry.setText(contact.getStrCountry());
+        Glide.with(holder.itemView.getContext()).load(contact.getStrBadge()).into(holder.ivFoodImage);
     }
 
     @Override
