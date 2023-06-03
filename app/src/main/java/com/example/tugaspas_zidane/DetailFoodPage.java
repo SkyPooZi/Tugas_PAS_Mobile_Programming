@@ -35,12 +35,12 @@ public class DetailFoodPage extends AppCompatActivity {
         ivTrophyImage = findViewById(R.id.ivTrophy);
 
         tvSportName.setText(foodModel.getStrSport());
-        tvLeague.setText(foodModel.getStrLeague());
-        tvCurrentSeason.setText(foodModel.getStrCurrentSeason());
-        tvDateFirstEvent.setText(foodModel.getDateFirstEvent());
-        tvGender.setText(foodModel.getStrGender());
-        tvCountry.setText(foodModel.getStrCountry());
-        tvDescriptionEN.setText(foodModel.getStrDescriptionEN());
+        tvLeague.setText("League : " + foodModel.getStrLeague());
+        tvCurrentSeason.setText("Current Season : " + foodModel.getStrCurrentSeason());
+        tvDateFirstEvent.setText("Date First Event : " + foodModel.getDateFirstEvent());
+        tvGender.setText("Gender : " + foodModel.getStrGender());
+        tvCountry.setText("Country : " + foodModel.getStrCountry());
+        tvDescriptionEN.setText("DescriptionEN : " + foodModel.getStrDescriptionEN());
         Glide.with(this).load(foodModel.getStrBadge()).into(ivBadgeImage);
         Glide.with(this).load(foodModel.getStrLogo()).into(ivLogoImage);
         Glide.with(this).load(foodModel.getStrTrophy()).into(ivTrophyImage);
