@@ -35,10 +35,10 @@
             android:text="this is League"
             android:layout_marginTop="5dp"
             android:textColor="@color/black"
-            android:paddingLeft="40dp"
-            android:paddingRight="40dp"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
             android:textSize="20dp"
-            android:layout_gravity="center"
+            android:layout_gravity="left"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
@@ -47,42 +47,36 @@
             android:text="this is Country"
             android:layout_marginTop="5dp"
             android:textColor="@color/black"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
             android:textSize="20dp"
-            android:layout_gravity="center"
+            android:layout_gravity="left"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+        <TextView
+            android:id="@+id/tvDateFirstEvent"
+            android:text="this is Date First Event"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:layout_gravity="left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
-            <TextView
-                android:id="@+id/tvDateFirstEvent"
-                android:text="this is Date First Event"
-                android:layout_marginTop="5dp"
-                android:textColor="@color/black"
-                android:paddingLeft="40dp"
-                android:paddingRight="20dp"
-                android:textSize="20dp"
-                android:layout_gravity="left"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-            <TextView
-                android:id="@+id/tvCurrentSeason"
-                android:text="this is Current Season"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginLeft="40dp"
-                android:textColor="@color/black"
-                android:textSize="20dp"
-                android:paddingLeft="20dp"
-                android:layout_gravity="right"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-        </LinearLayout>
+        <TextView
+            android:id="@+id/tvCurrentSeason"
+            android:text="this is Current Season"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:layout_gravity="left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
         <TextView
             android:id="@+id/tvGender"
@@ -91,7 +85,9 @@
             android:layout_marginBottom="10dp"
             android:textColor="@color/black"
             android:textSize="20dp"
-            android:layout_gravity="center"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:layout_gravity="left"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
